@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KitLabelConverter.Console.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SbuColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SBU (Use Drop Down)</Value>
+    </Setting>
+    <Setting Name="AttnColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Attn:</Value>
+    </Setting>
+    <Setting Name="DepartmentColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Department</Value>
+    </Setting>
+    <Setting Name="ItemNumberColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Item Number</Value>
+    </Setting>
+    <Setting Name="UpcColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">UPC number (Can't have any spaces)</Value>
+    </Setting>
+    <Setting Name="KitNameColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Kit Name</Value>
+    </Setting>
+    <Setting Name="InStoreDateColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">In-Store Date</Value>
+    </Setting>
+    <Setting Name="SetDateColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Set Date</Value>
+    </Setting>
+    <Setting Name="DestroyDateColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Destroy Date</Value>
+    </Setting>
+    <Setting Name="UpcEncodedColumnName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">UPC Encoded</Value>
+    </Setting>
+    <Setting Name="ValidSbuNames" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Apparel;Consumables;Corporate Operations;Entertainment;Grocery;Hardiness;Hardlines;Health and Wellness;Health Wellness;Home;Seasonal;Sign Logistics;Structural;Toys;Walmart Services</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,12 +1,16 @@
 ﻿namespace KitLabelConverter.Concrete.Validators
 {
   using FluentValidation;
+  using KitLabelConverter.Abstract;
 
   public class JobValidator : AbstractValidator<Job>
   {
-    public JobValidator()
+    private readonly ISettingsService _settings;
+
+    public JobValidator(ISettingsService settings)
     {
-      RuleFor(k => k.KitLabels).SetCollectionValidator(new KitLabelValidator());
+      _settings = settings;
+      RuleFor(k => k.KitLabels).SetCollectionValidator(new KitLabelValidator(_settings));
     }
   }
 }

@@ -1,13 +1,10 @@
 ﻿namespace KitLabelConverter.Console
 {
   using System;
-  using System.Collections;
-  using System.Collections.Generic;
   using System.IO;
   using System.IO.Abstractions;
   using System.Text;
   using FluentValidation;
-  using FluentValidation.Results;
   using KitLabelConverter.Abstract;
   using KitLabelConverter.Concrete;
   using KitLabelConverter.Concrete.Validators;
@@ -17,11 +14,11 @@
 
   class Program
   {
-    private static Container _container;
+    private static readonly Container Container;
 
     static Program()
     {
-      _container = new Container();
+      Container = new Container();
       ConfigureContainer();
     }
 
@@ -36,13 +33,11 @@
         exitCode = 1;
       }
 
-      //Console.WriteLine("Arguments parsed successfully!");
-      var extractor = _container.GetInstance<IExtractor<KitLabel>>();
-      var settings = _container.GetInstance<ISettingsService>();
+      var extractor = Container.GetInstance<IExtractor<KitLabel>>();
+      var settings = Container.GetInstance<ISettingsService>();
 
-      var jobValidator = new JobValidator();
+      var jobValidator = new JobValidator(settings);
       var columnMapValidator = new ColumnMapValidator();
-      ValidationResult result;
 
       try {
         extractor.Initialize(options.InputPath);
@@ -60,23 +55,22 @@
         Console.Error.Write(exc.Message);
       }
 
-      //Console.ReadLine();
       return exitCode;
     }
 
     private static void ConfigureContainer()
     {
-      _container.RegisterSingle<ISettingsService, KitLabelSettings>();
-      _container.RegisterSingle<IFileSystem, FileSystem>();
-      _container.Register<IDataSourceAdapter, FlexCelDataSourceAdapter>();
-      _container.Register<IExtractor<KitLabel>, KitLabelExtractor>();
+      Container.RegisterSingle<ISettingsService, KitLabelSettings>();
+      Container.RegisterSingle<IFileSystem, FileSystem>();
+      Container.Register<IDataSourceAdapter, FlexCelDataSourceAdapter>();
+      Container.Register<IExtractor<KitLabel>, KitLabelExtractor>();
     }
 
     private static string GetParseErrorString(Options options)
     {
       var sb = new StringBuilder();
       if (options.InputPath == null) sb.AppendLine("Input path not specified.");
-      if (options.OutputPath == null) sb.AppendLine("Output path was not specified");
+      if (options.OutputPath == null) sb.AppendLine("Output path not specified");
 
       return sb.ToString();
     }

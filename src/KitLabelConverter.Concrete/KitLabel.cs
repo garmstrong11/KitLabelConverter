@@ -2,32 +2,21 @@
 {
   public class KitLabel
   {
-    public KitLabel() {}
-
-    public KitLabel(string upc)
+    public KitLabel(int rowIndex)
     {
-      Upc = upc;
+      RowIndex = rowIndex;
     }
-    
-    public KitLabel(string sbu, string attn, string department, string itemNumber, 
-      string upc, string kitName, string inStoreDate, string setDate, string destroyDate)
-    {
-      Sbu = sbu;
-      Attn = attn;
-      Department = department;
-      ItemNumber = itemNumber;
-      Upc = upc;
-      KitName = kitName;
-      InStoreDate = inStoreDate;
-      SetDate = setDate;
-      DestroyDate = destroyDate;
-    }
-    
+      
     public string Sbu { get; set; }
     public string Attn { get; set; }
     public string Department { get; set; }
     public string ItemNumber { get; set; }
     public string Upc { get; set; }
+    public string KitName { get; set; }
+    public string InStoreDate { get; set; }
+    public string SetDate { get; set; }
+    public string DestroyDate { get; set; }
+    public int RowIndex { get; private set; }
 
     public string UpcEncoded
     {
@@ -38,11 +27,6 @@
           : BarcodeConverter128.StringToBarcode(Upc);
       }
     }
-
-    public string KitName { get; set; }
-    public string InStoreDate { get; set; }
-    public string SetDate { get; set; }
-    public string DestroyDate { get; set; }
 
     public bool AllColumnsNull
     {

@@ -32,17 +32,18 @@
       }
 
       for (var row = startRowIndex; row <= rowCount; row++) {
-        var sbu = XlAdapter.ExtractString(row, columnMap.SbuColumnId);
-        var attn = XlAdapter.ExtractString(row, columnMap.AttnColumnId);
-        var dept = XlAdapter.ExtractString(row, columnMap.DepartmentColumnId);
-        var item = XlAdapter.ExtractString(row, columnMap.ItemNumberColumnId);
-        var upc = XlAdapter.ExtractString(row, columnMap.UpcColumnId);
-        var kit = XlAdapter.ExtractString(row, columnMap.KitNameColumnId);
-        var inStore = XlAdapter.ExtractRawString(row, columnMap.InStoreDateColumnId);
-        var set = XlAdapter.ExtractRawString(row, columnMap.SetDateColumnId);
-        var destroy = XlAdapter.ExtractRawString(row, columnMap.DestroyDateColumnId);
-
-        var label = new KitLabel(sbu, attn, dept, item, upc, kit, inStore, set, destroy);
+        var label = new KitLabel(row)
+        {
+          Sbu = XlAdapter.ExtractString(row, columnMap.SbuColumnId),
+          Attn = XlAdapter.ExtractString(row, columnMap.AttnColumnId),
+          Department = XlAdapter.ExtractString(row, columnMap.DepartmentColumnId),
+          ItemNumber = XlAdapter.ExtractString(row, columnMap.ItemNumberColumnId),
+          Upc = XlAdapter.ExtractString(row, columnMap.UpcColumnId),
+          KitName = XlAdapter.ExtractString(row, columnMap.KitNameColumnId),
+          InStoreDate = XlAdapter.ExtractRawString(row, columnMap.InStoreDateColumnId),
+          SetDate = XlAdapter.ExtractRawString(row, columnMap.SetDateColumnId),
+          DestroyDate = XlAdapter.ExtractRawString(row, columnMap.DestroyDateColumnId)
+        };
 
         if (label.AllColumnsNull) continue;
 

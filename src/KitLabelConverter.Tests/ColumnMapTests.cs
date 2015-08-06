@@ -4,6 +4,7 @@
   using FakeItEasy;
   using FluentAssertions;
   using KitLabelConverter.Abstract;
+  using KitLabelConverter.Concrete;
   using KitLabelConverter.Extractor;
   using NUnit.Framework;
 
@@ -46,15 +47,15 @@
       columnMap.SbuColumnId.Should().Be(-1);
     }
 
-    [Test]
-    public void UnapprovedColumns_ColumnWithUnknownName_ReturnsUnknownColumn()
-    {
-      var columnMap = new ColumnMap(_settings);
-      columnMap.AddColumnLocator(new ColumnLocator("SBU (Use Drop Down)", 7));
-      columnMap.AddColumnLocator(new ColumnLocator("UnknownName1", 5));
-      columnMap.AddColumnLocator(new ColumnLocator("UnknownName2", 6));
+    //[Test]
+    //public void UnapprovedColumns_ColumnWithUnknownName_ReturnsUnknownColumn()
+    //{
+    //  var columnMap = new ColumnMap(_settings);
+    //  columnMap.AddColumnLocator(new ColumnLocator("SBU (Use Drop Down)", 7));
+    //  columnMap.AddColumnLocator(new ColumnLocator("UnknownName1", 5));
+    //  columnMap.AddColumnLocator(new ColumnLocator("UnknownName2", 6));
 
-      columnMap.UnapprovedColumns.Count.Should().Be(2);
-    }
+    //  columnMap.UnapprovedColumns.Count.Should().Be(2);
+    //}
   }
 }

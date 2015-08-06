@@ -2,6 +2,7 @@
 {
   using System.Collections.Generic;
   using KitLabelConverter.Abstract;
+  using KitLabelConverter.Concrete;
 
   public interface IExtractor<out T> where T : class
   {

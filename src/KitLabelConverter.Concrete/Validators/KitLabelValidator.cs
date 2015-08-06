@@ -1,16 +1,11 @@
-﻿namespace KitLabelConverter.Concrete
+﻿namespace KitLabelConverter.Concrete.Validators
 {
   using FluentValidation;
-  using KitLabelConverter.Abstract;
 
   public class KitLabelValidator : AbstractValidator<KitLabel>
   {
-    private readonly ISettingsService _settingsService;
-
-    public KitLabelValidator(ISettingsService settingsService)
+    public KitLabelValidator()
     {
-      _settingsService = settingsService;
-
       RuleFor(k => k.Sbu).NotEmpty()
         .WithMessage("Row {0} has no data for SBU", c => c.RowIndex);
 

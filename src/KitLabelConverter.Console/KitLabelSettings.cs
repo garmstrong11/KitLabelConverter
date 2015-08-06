@@ -1,5 +1,7 @@
 ﻿namespace KitLabelConverter.Console
 {
+  using System.Collections.Generic;
+  using System.Linq;
   using KitLabelConverter.Abstract;
   using KitLabelConverter.Console.Properties;
 
@@ -62,6 +64,16 @@
     {
       get { return _settings.ValidSbuNames; }
       set { _settings.ValidSbuNames = value; }
+    }
+
+    public IEnumerable<string> ValidColumnNames
+    {
+      get
+      {
+        return GetType().GetProperties()
+          .Where(p => p.Name.EndsWith("ColumnName"))
+          .Select(info => info.GetValue(_settings).ToString());
+      }
     }
   }
 }

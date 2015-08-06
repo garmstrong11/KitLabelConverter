@@ -1,4 +1,4 @@
-﻿namespace KitLabelConverter.Extractor
+﻿namespace KitLabelConverter.Concrete
 {
   public class ColumnLocator
   {

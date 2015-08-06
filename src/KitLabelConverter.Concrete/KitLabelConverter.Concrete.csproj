@@ -50,10 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarcodeConverter.cs" />
+    <Compile Include="ColumnLocator.cs" />
+    <Compile Include="ColumnMap.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="Validators\ColumnMapValidator.cs" />
+    <Compile Include="Validators\JobValidator.cs" />
     <Compile Include="KitLabel.cs" />
-    <Compile Include="KitLabelValidator.cs" />
+    <Compile Include="Validators\KitLabelValidator.cs" />
     <Compile Include="Maybe.cs" />
     <Compile Include="Pathing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

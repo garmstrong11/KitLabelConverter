@@ -53,12 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColumnLocator.cs" />
     <Compile Include="ExtractorBase.cs" />
     <Compile Include="FlexCelDataSourceAdapter.cs" />
     <Compile Include="FlexCelExtractionException.cs" />
     <Compile Include="IExtractor.cs" />
-    <Compile Include="ColumnMap.cs" />
     <Compile Include="KitLabelExtractor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

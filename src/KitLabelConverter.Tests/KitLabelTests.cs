@@ -14,7 +14,8 @@
     [TestCase("IDA0735", Result = "ÌIDAÇ'C>Î")]
     public string Converts_Code128(string upc)
     {
-      var kitLabel = new KitLabel(upc);
+      var kitLabel = new KitLabel(69) {Upc = upc};
+      
       return kitLabel.UpcEncoded;
     }
   }

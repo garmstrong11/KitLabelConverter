@@ -2,18 +2,22 @@
 {
   using System.Collections.Generic;
   using System.Linq;
-  using KitLabelConverter.Abstract;
 
   public class Job
   {
     private readonly string _headerString;
+    private readonly IEnumerable<KitLabel> _kitLabels;
 
-    public Job(string headerString)
+    public Job(string headerString, IEnumerable<KitLabel> kitLabels)
     {
       _headerString = headerString;
+      _kitLabels = kitLabels;
     }
 
-    public List<KitLabel> KitLabels { get; set; }
+    public List<KitLabel> KitLabels
+    {
+      get { return _kitLabels.ToList(); }
+    }
 
     public List<string> GetOutputList()
     {

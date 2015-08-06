@@ -5,6 +5,7 @@
   using System.IO;
   using System.IO.Abstractions;
   using KitLabelConverter.Abstract;
+  using KitLabelConverter.Concrete;
 
   public abstract class ExtractorBase<T> : IExtractor<T> where T : class
   {

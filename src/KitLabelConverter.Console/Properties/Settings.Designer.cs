@@ -156,30 +156,5 @@ namespace KitLabelConverter.Console.Properties {
                 this["ValidSbuNames"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\\\Switch\\D Drive on SWITCH\\DataRoot\\backing\\Miller Zell Kit Labels\\automanaged\\Fi" +
-            "nished File")]
-        public string ErrorOutputPath {
-            get {
-                return ((string)(this["ErrorOutputPath"]));
-            }
-            set {
-                this["ErrorOutputPath"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("DataError.txt")]
-        public string DataErrorFileName {
-            get {
-                return ((string)(this["DataErrorFileName"]));
-            }
-            set {
-                this["DataErrorFileName"] = value;
-            }
-        }
     }
 }

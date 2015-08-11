@@ -18,7 +18,6 @@
 
     IEnumerable<string> ValidColumnNames { get; }
 
-    string ErrorOutputPath { get; set; }
-    string DataErrorFileName { get; set; }
+    string OutputHeaderString { get; }
 	}
 }

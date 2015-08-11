@@ -76,16 +76,26 @@
       }
     }
 
-    public string ErrorOutputPath
+    public string OutputHeaderString
     {
-      get { return _settings.ErrorOutputPath; }
-      set { _settings.ErrorOutputPath = value; }
-    }
+      get
+      {
+        const string fmt = "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}";
 
-    public string DataErrorFileName
-    {
-      get { return _settings.DataErrorFileName; }
-      set { _settings.DataErrorFileName = value; }
+        var result = string.Format(fmt,
+          SbuColumnName,
+          AttnColumnName,
+          DepartmentColumnName,
+          ItemNumberColumnName,
+          UpcColumnName,
+          UpcEncodedColumnName,
+          KitNameColumnName,
+          InStoreDateColumnName,
+          SetDateColumnName,
+          DestroyDateColumnName);
+
+        return result;
+      }
     }
   }
 }

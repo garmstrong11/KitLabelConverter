@@ -1,8 +1,10 @@
 ﻿namespace KitLabelConverter.Console
 {
   using System;
+  using System.Collections.Generic;
   using System.IO;
   using System.IO.Abstractions;
+  using System.Linq;
   using System.Text;
   using FluentValidation;
   using KitLabelConverter.Abstract;
@@ -10,7 +12,6 @@
   using KitLabelConverter.Concrete.Validators;
   using KitLabelConverter.Extractor;
   using SimpleInjector;
-  using Console = System.Console;
 
   class Program
   {
@@ -32,6 +33,8 @@
       var jobValidator = new JobValidator(settings);
       var columnMapValidator = new ColumnMapValidator();
       var optionsValidator = new OptionsValidator();
+      var kitLabels = new List<KitLabel>();
+      Job job;
 
       CommandLine.Parser.Default.ParseArguments(args, options);
 
@@ -43,18 +46,33 @@
 
         columnMapValidator.ValidateAndThrow(columnMap);
 
-        var kitLabels = extractor.Extract(columnMap, 1, 2);
-        var job = new Job(columnMap.GetOutputHeaderString(), kitLabels);
+        kitLabels.AddRange(extractor.Extract(columnMap, 1, 2));
+        job = new Job(settings.OutputHeaderString, kitLabels);
 
         jobValidator.ValidateAndThrow(job);
-
-        File.WriteAllLines(options.OutputPath, job.GetOutputList(), Encoding.Unicode);
       }
-      catch (Exception exc) {
-        var errorPath = Path.Combine(settings.ErrorOutputPath, settings.DataErrorFileName);
-        File.WriteAllText(errorPath, exc.Message);
 
-        Console.Error.Write(exc.Message);
+      catch (ValidationException exc) {
+        var messages = string.Join(", ", exc.Errors.Select(e => e.ErrorMessage));
+        var messageText = string.Format("** Warning! Input data file validation failed: {0}", messages);
+
+        kitLabels = new List<KitLabel>
+        {
+          new KitLabel(69) {Attn = "Data errors detected", Sbu = "Error", KitName = messageText}
+        };
+      }
+
+      catch (Exception exc) {
+        var message = string.Format("** Warning! Excel conversion errors occurred: {0}", exc.Message);
+        kitLabels = new List<KitLabel>
+        {
+          new KitLabel(70) {Attn = "Unknown Error detected", Sbu = "Error",  KitName = message}
+        };
+      }
+
+      finally {
+        job = new Job(settings.OutputHeaderString, kitLabels);
+        File.WriteAllLines(options.OutputPath, job.GetOutputList(), Encoding.Unicode);
       }
     }
 

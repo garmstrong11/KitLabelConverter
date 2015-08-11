@@ -74,23 +74,23 @@
       get { return FindColumnIndex(_settings.DestroyDateColumnName); }
     }
 
-    public string GetOutputHeaderString()
-    {
-      const string fmt = "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}";
+    //public string GetOutputHeaderString()
+    //{
+    //  const string fmt = "{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t{6}\t{7}\t{8}\t{9}";
 
-      var result = string.Format(fmt,
-        _settings.SbuColumnName,
-        _settings.AttnColumnName,
-        _settings.DepartmentColumnName,
-        _settings.ItemNumberColumnName,
-        _settings.UpcColumnName,
-        _settings.UpcEncodedColumnName,
-        _settings.KitNameColumnName,
-        _settings.InStoreDateColumnName,
-        _settings.SetDateColumnName,
-        _settings.DestroyDateColumnName);
+    //  var result = string.Format(fmt,
+    //    _settings.SbuColumnName,
+    //    _settings.AttnColumnName,
+    //    _settings.DepartmentColumnName,
+    //    _settings.ItemNumberColumnName,
+    //    _settings.UpcColumnName,
+    //    _settings.UpcEncodedColumnName,
+    //    _settings.KitNameColumnName,
+    //    _settings.InStoreDateColumnName,
+    //    _settings.SetDateColumnName,
+    //    _settings.DestroyDateColumnName);
 
-      return result;
-    }
+    //  return result;
+    //}
   }
 }

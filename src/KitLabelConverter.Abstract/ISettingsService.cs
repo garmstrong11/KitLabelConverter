@@ -16,6 +16,9 @@
     string UpcEncodedColumnName { get; set; }
     string ValidSbuNames { get; set; }
 
-    IEnumerable<string> ValidColumnNames { get; } 
+    IEnumerable<string> ValidColumnNames { get; }
+
+    string ErrorOutputPath { get; set; }
+    string DataErrorFileName { get; set; }
 	}
 }

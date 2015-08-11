@@ -75,5 +75,17 @@
           .Select(info => info.GetValue(_settings).ToString());
       }
     }
+
+    public string ErrorOutputPath
+    {
+      get { return _settings.ErrorOutputPath; }
+      set { _settings.ErrorOutputPath = value; }
+    }
+
+    public string DataErrorFileName
+    {
+      get { return _settings.DataErrorFileName; }
+      set { _settings.DataErrorFileName = value; }
+    }
   }
 }

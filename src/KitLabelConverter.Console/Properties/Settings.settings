@@ -35,5 +35,11 @@
     <Setting Name="ValidSbuNames" Type="System.String" Scope="User">
       <Value Profile="(Default)">Apparel;Consumables;Corporate Operations;Entertainment;Grocery;Hardiness;Hardlines;Health and Wellness;Health Wellness;Home;Seasonal;Sign Logistics;Structural;Toys;Walmart Services</Value>
     </Setting>
+    <Setting Name="ErrorOutputPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\\Switch\D Drive on SWITCH\DataRoot\backing\Miller Zell Kit Labels\automanaged\Finished File</Value>
+    </Setting>
+    <Setting Name="DataErrorFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DataError.txt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -25,7 +25,7 @@
         .WithMessage("The Upc value in Row {0} contains spaces", c => c.RowIndex);
 
       RuleFor(k => k.Sbu).Must(BeInApprovedSbuList)
-        .WithMessage("\"{0}\" is not an approved value for SBU", c => c.Sbu);
+        .WithMessage("Row {0} has an unapproved value for SBU: \"{1}\".", c=> c.RowIndex, c => c.Sbu);
     }
 
     public bool NotContainSpaces(string itemNumber)

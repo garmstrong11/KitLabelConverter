@@ -69,6 +69,7 @@
     <Compile Include="KitLabelExtractorTests.cs" />
     <Compile Include="KitLabelTestBase.cs" />
     <Compile Include="KitLabelTests.cs" />
+    <Compile Include="OptionsValidatorTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -83,6 +84,10 @@
     <ProjectReference Include="..\KitLabelConverter.Concrete\KitLabelConverter.Concrete.csproj">
       <Project>{e872096a-b832-4906-a70e-bc0fc4c3bd3d}</Project>
       <Name>KitLabelConverter.Concrete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KitLabelConverter.Console\KitLabelConverter.Console.csproj">
+      <Project>{b2a588c7-acba-445d-babb-681f8ffd7239}</Project>
+      <Name>KitLabelConverter.Console</Name>
     </ProjectReference>
     <ProjectReference Include="..\KitLabelConverter.Extractor\KitLabelConverter.Extractor.csproj">
       <Project>{dcb55ee6-fa63-416c-bef9-9270ac76a072}</Project>

@@ -53,8 +53,8 @@
       }
 
       catch (ValidationException exc) {
-        var messages = string.Join(", ", exc.Errors.Select(e => e.ErrorMessage));
-        var messageText = string.Format("** Warning! Input data file validation failed: {0}", messages);
+        var messages = string.Join("; ", exc.Errors.Select(e => e.ErrorMessage));
+        var messageText = string.Format("** Warning! Input data file validation failed:; {0}", messages);
 
         kitLabels = new List<KitLabel>
         {
@@ -62,8 +62,28 @@
         };
       }
 
+      catch (ArgumentOutOfRangeException exception) {
+        var message = "** Warning! Excel conversion errors occurred:; ";
+        var lookup = new Dictionary<string, string>
+        {
+          {"sheetIndex", "Unable to find a worksheet from which to extract data"},
+          {"startRowIndex", "No kit label rows are present in the data file"}
+        };
+
+        string errorText;
+
+        if (lookup.TryGetValue(exception.ParamName, out errorText)) {
+          message += errorText;
+        }
+
+        kitLabels = new List<KitLabel>
+        {
+          new KitLabel(69) {Attn = "Range error detected", Sbu = "Error",  KitName = message}
+        };
+      }
+
       catch (Exception exc) {
-        var message = string.Format("** Warning! Excel conversion errors occurred: {0}", exc.Message);
+        var message = string.Format("** Warning! Excel conversion errors occurred:; {0}", exc.Message);
         kitLabels = new List<KitLabel>
         {
           new KitLabel(70) {Attn = "Unknown Error detected", Sbu = "Error",  KitName = message}

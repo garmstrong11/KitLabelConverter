@@ -19,6 +19,11 @@
       get { return _kitLabels.ToList(); }
     }
 
+    public int KitLabelCount
+    {
+      get { return _kitLabels.Count(); }
+    }
+
     public List<string> GetOutputList()
     {
       var result = KitLabels.Select(k => k.ToString()).ToList();

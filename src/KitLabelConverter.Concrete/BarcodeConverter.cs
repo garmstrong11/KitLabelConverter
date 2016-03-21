@@ -72,6 +72,12 @@ namespace KitLabelConverter.Concrete
           {
             currentChar = int.Parse(value.Substring(charPos, 2));
             currentChar = currentChar < 95 ? currentChar + 32 : currentChar + 100;
+
+            // In table C, value 00 is translated to char 32
+            // Remap char 32 (space glyph) to char 194 (Â glyph)
+            // for IDAutomation Code 128 font:
+            if (currentChar == 32) { currentChar = 194; }
+
             returnValue = returnValue + ((char) currentChar);
             charPos += 2;
           }
@@ -91,6 +97,11 @@ namespace KitLabelConverter.Concrete
       var checksum = 0;
       for (var loop = 0; loop < returnValue.Length; loop++) {
         currentChar = char.Parse(returnValue.Substring(loop, 1));
+
+        // Restore value 32 to current char 194 
+        // so checksum calculation will be correct:
+        if (currentChar == 194) { currentChar = 32; }
+
         currentChar = currentChar < 127 ? currentChar - 32 : currentChar - 100;
         if (loop == 0)
           checksum = currentChar;

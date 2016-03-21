@@ -33,7 +33,7 @@
       <Value Profile="(Default)">UPC Encoded</Value>
     </Setting>
     <Setting Name="ValidSbuNames" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Apparel;Consumables;Corporate Operations;Entertainment;Grocery;Hardiness;Hardlines;Health and Wellness;Health Wellness;Home;Seasonal;Sign Logistics;Structural;Toys;Walmart Services</Value>
+      <Value Profile="(Default)">Apparel;Consumables;Corporate Operations;Entertainment;Fuel;Grocery;Hardiness;Hardlines;Health and Wellness;Health Wellness;Home;Seasonal;Sign Logistics;Structural;Toys;Walmart Services</Value>
     </Setting>
   </Settings>
 </SettingsFile>

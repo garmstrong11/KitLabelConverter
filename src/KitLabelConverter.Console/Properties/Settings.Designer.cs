@@ -145,9 +145,9 @@ namespace KitLabelConverter.Console.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Apparel;Consumables;Corporate Operations;Entertainment;Grocery;Hardiness;Hardline" +
-            "s;Health and Wellness;Health Wellness;Home;Seasonal;Sign Logistics;Structural;To" +
-            "ys;Walmart Services")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Apparel;Consumables;Corporate Operations;Entertainment;Fuel;Grocery;Hardiness;Har" +
+            "dlines;Health and Wellness;Health Wellness;Home;Seasonal;Sign Logistics;Structur" +
+            "al;Toys;Walmart Services")]
         public string ValidSbuNames {
             get {
                 return ((string)(this["ValidSbuNames"]));
